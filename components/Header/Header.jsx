@@ -2,8 +2,9 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
+
 import HeaderBackground from '@/components/Header/HeaderBackground'
+import NavLink from '@/components/Header/NavLink'
 
 import logoImg from '@/assets/logo.png'
 // import style from './Header.module.css' to affect the style of the header only and not the whole page
@@ -11,8 +12,6 @@ import logoImg from '@/assets/logo.png'
 import classes from './Header.module.css'
 
 export default function Header() {
-  const path = usePathname()
-
   return (
     <>
       <HeaderBackground />
@@ -24,20 +23,10 @@ export default function Header() {
         <nav className={classes.nav}>
           <ul>
             <li>
-              <Link
-                href="/meals"
-                className={path.startsWith('/meals') ? classes.active : undefined}
-              >
-                Browse Meals
-              </Link>
+              <NavLink href="/meals">Browse Meals</NavLink>
             </li>
             <li>
-              <Link
-                href="/community"
-                className={path.startsWith('/community') ? classes.active : undefined}
-              >
-                Foodies Community
-              </Link>
+              <NavLink href="/community">Foodies Community</NavLink>
             </li>
           </ul>
         </nav>

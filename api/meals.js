@@ -9,3 +9,10 @@ export async function getMeals() {
   // Use all to fetch all the rows that are fetched by this statment(query)
   return db.prepare('SELECT * FROM meals').all()
 }
+
+export function getMeal(slug) {
+  // Do not use this, it is vulnerable to SQL injection
+  // return db.prepare('SELECT * FROM meals WHERE slug = ' + slug).get()
+
+  return db.prepare('SELECT * FROM meals WHERE slug = ?').get(slug)
+}

@@ -8,11 +8,17 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": "20.11.1",
+    "npm": "10.2.4"
+  },
   "dependencies": {
     "better-sqlite3": "^9.4.1",
-    "next": "14.0.3",
+    "next": "^14.1.1-canary.62",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "slugify": "^1.6.6",
+    "xss": "^1.0.14"
   },
   "devDependencies": {
     "eslint": "^8",

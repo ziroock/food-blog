@@ -1,26 +1,10 @@
 import ImagePicker from '@/components/Meals/ImagePicker'
+import MealsFormSubmit from '@/components/Meals/MealsFormSubmit'
+import { shareMeal } from '@/api/actions'
 
 import classes from './page.module.css'
 
 export default function ShareMealPage() {
-  // Next.js will execute this function on the server and it will
-  // automatically receive the formData from the form submission.
-  // We need a name propery for each input in the form to access
-  async function shareMeal(formData) {
-    'use server'
-
-    const meal = {
-      title: formData.get('title'),
-      summary: formData.get('summary'),
-      instructions: formData.get('instructions'),
-      image: formData.get('image'),
-      creator: formData.get('name'),
-      creator_email: formData.get('email'),
-    }
-
-    console.log(meal)
-  }
-
   return (
     <>
       <header className={classes.header}>
@@ -30,6 +14,7 @@ export default function ShareMealPage() {
         <p>Or any other meal you feel needs sharing!</p>
       </header>
       <main className={classes.main}>
+        {' '}
         <form className={classes.form} action={shareMeal}>
           <div className={classes.row}>
             <p>
@@ -55,7 +40,7 @@ export default function ShareMealPage() {
           </p>
           <ImagePicker label="Your image" name="image" />
           <p className={classes.actions}>
-            <button type="submit">Share Meal</button>
+            <MealsFormSubmit />
           </p>
         </form>
       </main>
